@@ -58,7 +58,7 @@ These are the default resource and IP requirements for installing the tile:
  		<td>4096</td>
  		<td>50000</td>
  		<td>0</td>
- 		<td2</td>
+ 		<td></td>
  	</tr>
 	<tr>
 		<td>Kibana</td>
