@@ -2,8 +2,8 @@
 title: ELK for Pivotal Cloud Foundry
 ---
 
-# Resource requirements for ELK for Pivotal CF
-These are the default resource and IP requirements for installing the tile
+# Resource requirements for ELK for Pivotal Cloud Foundry
+These are the default resource and IP requirements for installing the tile:
 <table border="1" class="nice">
 	<tr>
 		<th>Component</th>
@@ -82,5 +82,5 @@ These are the default resource and IP requirements for installing the tile
 		<td>0</td>
 		<td>1</td>
 	</tr>
-	
+
 </table>
