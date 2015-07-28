@@ -1,62 +1,32 @@
 ---
-title: Redis for Pivotal Cloud Foundry
+title: ELK for Pivotal Cloud Foundry
 ---
 
-This is documentation for the [Redis service for Pivotal Cloud Foundry](https://network.pivotal.io/products/p-redis).
+This is documentation for the [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk) tile.
 
 ## Product snapshot
 
 <dl>
-<dt>Current Redis for PCF Details</dt>
-<dd><strong>Version</strong>: 1.4.6 </dd>
-<dd><strong>Release Date</strong>: 7th July 2015</dd>
-<dd><strong>Software component version</strong>: Redis OSS 2.8.21</dd>
+<dt>Current ELK for Pivotal CF Details</dt>
+<dd><strong>Version</strong>: v1.0-beta2 </dd>
+<dd><strong>Release Date</strong>: 28th July 2015</dd>
+<dd><strong>Software component version</strong>: Elasticsearch 1.6.0, Logstash 1.5.2, Kibana 4.2-snapshot, Redis 2.8.4</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.4.x</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.5.x, 1.4.x</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
-<dd><strong>Openstack support?</strong> Yes</dd>
+<dd><strong>Openstack support?</strong> Coming soon</dd>
 </dl>
 
 ## Upgrading to the Latest Version
 
-Consider the following compatibility information before upgrading Redis for Pivotal Cloud Foundry.
+Whilst in beta it is NOT possible to upgrade from previous versions.  You must uninstall previous versions and then install this latest version.  
 
-<p class="note"><strong>Note</strong>: Before you upgrade to Ops Manager 1.4.x, you must first upgrade Redis for PCF to any 1.4.x version prior to 1.4.4. This allows Redis for PCF upgrades after you install OpsManager 1.4.x. </p>
-
-For more information, refer to the full Product Version Matrix.
-
-<table border="1" class="nice">
-<tr>
-  <th>Ops Manager Version</th>
-  <th>Supported Upgrades from Imported Redis Installation</th>
-</tr>
-<tr>
-  <th>1.3.x</th>
-  <td><ul>
-      <li>From 1.3.2 to 1.4.0, 1.4.1, 1.4.2</li>
-      <li>From 1.4.0 to 1.4.1, 1.4.2, 1.4.3</li>
-      <li>From 1.4.1 to 1.4.2, 1.4.3</li>
-    </ul>
-  </td>
-</tr>
-<tr>
-  <th>1.5.x and 1.4.x</th>
-  <td><ul>
-      <li>From 1.4.0 to 1.4.4, 1.4.5, 1.4.6</li>
-      <li>From 1.4.1 to 1.4.4, 1.4.5, 1.4.6</li>
-      <li>From 1.4.2 to 1.4.4, 1.4.5, 1.4.6</li>
-      <li>From 1.4.3 to 1.4.4, 1.4.5, 1.4.6</li>
-      <li>From 1.4.4 to 1.4.5, 1.4.6</li>
-      <li>From 1.4.5 to 1.4.6</li>
-    </ul>
-  </td>
-</tr>
-</table>
+<p class="note"><strong>Note</strong>: Uninstalling previous versions will delete all data and saved dashboard settings.</p>
 
 ## Install via Pivotal Operations Manager
 
-To install Redis for PCF, follow the procedure for installing Pivotal Ops Manager tiles:
+To install ELK for Pivotal CF, follow the procedure for installing Pivotal Ops Manager tiles:
 
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
 1. Upload the product file to your Ops Manager installation.
@@ -64,57 +34,46 @@ To install Redis for PCF, follow the procedure for installing Pivotal Ops Manage
 1. Click the newly added tile to review any configurable options.
 1. Click **Apply Changes** to install the service.
 
-## Available Plans
+## Application logs
 
-There are two available plans:
+Once you have installed the product, it automatically subscribes to your Elastic Runtime firehose and starts consuming all application logs.
 
-<table border="1" class="nice">
-<tr>
-<th><strong>Plan Name</strong></th>
-<th><strong>Suitable for</strong></th>
-<th><strong>Tenancy Model per Instance</strong></th>
-<th><strong>Highly Available</strong></th>
-<th><strong>Backup Functionality</strong></th>
-</tr>
+## Elastic Runtime and Data Service component logs
 
-<tr>
-<td><b>Shared-VM</b></td>
-<td>Development and testing workloads</td>
-<td>Shared VM</td>
-<td>No</td>
-<td>No</td>
-</tr>
+You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
 
-<tr>
-<td><b>Dedicated-VM</b></td>
-<td>Production workloads</td>
-<td>Dedicated VM</td>
-<td>No</td>
-<td>No</td>
-</tr>
+0. Navigate to ELK-for-PCF Tile > Status, and find the `Ingestor for Syslog / RELP traffic` node's IP.
+0. Update Pivotal Elastic Runtime Tile > External endpoints using above IP, port 515 and protocol RELP.
+0. Update RabbitMQ for PCF Tile > Syslog using above IP, port 514.
+0. Update Redis for Pivotal CF Tile > Syslog using above IP, port 514.
+0. Click **Apply Changes** to install the service.
 
-</table>
+## Kibana for CF dashboards
 
-## Provisioning and Binding via Cloud Foundry
-
-Once you have installed the product, it automatically registers itself with your Elastic Runtime. At this point, the product is available to your application developers, either in the Marketplace in the web based console, or via `cf marketplace`. They can add, provision, and bind the service to their applications like any other CF service:
+An customised instance of the dashboarding application Kibana and some sample dashboards are installed at
 
 ```
-$ cf create-service p-redis shared-vm redis
-$ cf bind-service my-application redis
-$ cf restart my-application
+https://logs.<system_domain>
 ```
+
+When accessing Kibana you will be prompted to login with your Cloud Foundry UAA credentials (the same used to access the app manager console)
+
+<p class="note"><strong>Note</strong>: Currently all authenticated users can see logs from all applications.  Users will be restricted to only being able to see logs from applications in spaces they are a member of in a later beta.</p>
 
 ## Security
 The following ports & ranges are used in this service:
 
-* Destination port 80 access to the service broker from the cloud controllers
-* Destination port 6379 access to all dedicated nodes from the DEA network(s)
-* Destination ports 32768 to 61000 on the service broker from the DEA network(s). This is only required for the shared service plan.
+* Destination port 443 for access to Kibana (via the Elastic Runtime `system domain` at `https://logs.<system_domain>` )
+* Destination port 443 for access from the `Ingestor for Cloud Foundry Firehose` node to the Elastic Runtime Firehose
+* Destination port 514 and 515 from the Elastic Runtime and Data Service network(s) to the  `Ingestor for Syslog / RELP traffic` node
+* Destination ports 9200 from the Elastic Runtime DEA network(s) to the API node.
 
-## Example Application
+## Examples 
 
-To help your application developers get started with Redis for PCF, we have provided an example application, which can be [downloaded here](https://github.com/pivotal-cf/cf-redis-example-app/archive/master.zip).
+The following examples demonstrate common log analysis use-cases supported by the ELK for Pivotal CF tile:
+
+* [Evidence based blue / green app deploys](https://github.com/stayup-io/cf-dicey-app)
+* Cross microservice log tracing - TODO
 
 ## Feedback
 
@@ -122,4 +81,8 @@ Please provide any bugs, feature requests, or questions to [the Pivotal Cloud Fo
 
 ## Further Reading
 
-* [Official Redis Documentation](http://redis.io/documentation)
+* [Official Elastic Elasticsearch 1.6.0 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/1.6/index.html)
+* [Official Elastic Logstash Documentation](https://www.elastic.co/guide/en/logstash/current/index.html)
+* [Official Elastic Kibana 4.1 Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
+
+
