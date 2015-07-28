@@ -13,12 +13,9 @@ This is documentation for the [ELK for Pivotal Cloud Foundry](https://network.pi
 <dd><strong>Software component version</strong>: Elasticsearch 1.6.0, Logstash 1.5.2, Kibana 4.2-snapshot, Redis 2.8.4</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.4.x</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.5.x, 1.4.x</dd>
-<dd><strong>Compatible RabbitMQ for PCF Version(s)</strong>: 1.4.1</dd>
-<dd><strong>Compatible Redis for Pivotal CF Version(s)</strong>: 1.4.6</dd>
-<dd><strong>Compatible MySQL for Pivotal Cloud Foundry Version(s)</strong>: 1.5.0</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
-<dd><strong>Openstack support?</strong> Yes</dd>
+<dd><strong>Openstack support?</strong> Coming soon</dd>
 </dl>
 
 ## Upgrading to the Latest Version
