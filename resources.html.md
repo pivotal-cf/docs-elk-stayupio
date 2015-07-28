@@ -74,7 +74,7 @@ These are the default resource and IP requirements for installing the tile:
 	<tr>
 		<td>Logstash</td>
 		<td>Log parser</td>
-		<td>2<td>
+		<td>2</td>
 		<td>2</td>
 		<td>1024</td>
 		<td>2048</td>
