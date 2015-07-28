@@ -1,13 +1,13 @@
 ---
-title: Redis for Pivotal Cloud Foundry
+title: ELK for Pivotal Cloud Foundry
 ---
 
-# Resource requirements for Redis for PCF
+# Resource requirements for ELK for Pivotal CF
 These are the default resource and IP requirements for installing the tile
 <table border="1" class="nice">
 	<tr>
-		<th>Product</th>
-		<th>Resource</th>
+		<th>Component</th>
+		<th>Job</th>
 		<th>Instances</th>
 		<th>CPU</th>
 		<th>Ram</th>
@@ -17,60 +17,70 @@ These are the default resource and IP requirements for installing the tile
 		<th>Dynamic IP</th>
 	</tr>
 	<tr>
- 		<td>Redis</td>
-	 	<td>Redis Broker</td>
-	 	<td>1</td><td>2</td>
-	 	<td>1024</td><td>4096</td>
+ 		<td>Logstash with firehose adapter</td>
+	 	<td>Ingestor for Cloud Foundry Firehose</td>
+	 	<td>1</td>
+	 	<td>2</td>
 	 	<td>1024</td>
+	 	<td>4096</td>
+	 	<td>0</td>
+	 	<td>1</td>
+	 	<td>0</td>
+ 	</tr>
+ 	<tr>
+ 		<td>Logstash</td>
+	 	<td>Ingestor for Syslog / RELP traffic</td>
+	 	<td>1</td>
+	 	<td>2</td>
+	 	<td>1024</td>
+	 	<td>4096</td>
+	 	<td>0</td>
 	 	<td>1</td>
 	 	<td>0</td>
  	</tr>
  	<tr>
  		<td>Redis</td>
- 		<td>Dedicated Node</td>
- 		<td>5</td>
- 		<td>2</td>
- 		<td>1024</td>
- 		<td>4096</td>
- 		<td>4096</td>
+ 		<td>Queue</td>
  		<td>1</td>
+ 		<td>2</td>
+ 		<td>15000</td>
+ 		<td>4096</td>
+ 		<td>30000</td>
  		<td>0</td>
+ 		<td>1</td>
  	</tr>
  	<tr>
- 		<td>Redis</td>
- 		<td>Broker Registrar</td>
- 		<td>1</td>
- 		<td>1</td>
- 		<td>1024</td>
- 		<td>2048</td>
+ 		<td>Elasticsearch</td>
+ 		<td>Elasticsearch data nodes</td>
+ 		<td>2</td>
+ 		<td>4</td>
+ 		<td>32000</td>
+ 		<td>4096</td>
+ 		<td>50000</td>
  		<td>0</td>
- 		<td>0</td>
- 		<td>1</td>
+ 		<td2</td>
  	</tr>
 	<tr>
-		<td>Redis</td>
-		<td>Broker De-Registrar</td>
+		<td>Kibana</td>
+		<td>API and Admin Kibana</td>
 		<td>1</td>
 		<td>1</td>
+		<td>1024</td>
+		<td>2048</td>
+		<td>0</td>
+		<td>1</td>
+		<td>0</td>
+	</tr>
+	<tr>
+		<td>Logstash</td>
+		<td>Log parser</td>
+		<td>2/td>
+		<td>2</td>
 		<td>1024</td>
 		<td>2048</td>
 		<td>0</td>
 		<td>0</td>
 		<td>1</td>
 	</tr>
-	<tr>
-		<td>Redis</td>
-		<td>Compliation</td>
-		<td>2</td>
-		<td>2</td>
-		<td>1024</td>
-		<td>4096</td>
-		<td>0</td>
-		<td>0</td>
-		<td>1</td>
-	</tr>
+	
 </table>
-
-#### Notes:
-* The `shared-vm` plan is on the `Redis Broker` resource
-* The `dedicated-vm` plan is on the `Dedicatd Node` resource
