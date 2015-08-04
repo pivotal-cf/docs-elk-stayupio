@@ -8,8 +8,8 @@ This is documentation for the [ELK for Pivotal Cloud Foundry](https://network.pi
 
 <dl>
 <dt>Current ELK for Pivotal Cloud Foundry Details</dt>
-<dd><strong>Version</strong>: v1.0-beta2 </dd>
-<dd><strong>Release Date</strong>: 28th July 2015</dd>
+<dd><strong>Version</strong>: v0.1.0.beta.3 </dd>
+<dd><strong>Release Date</strong>: 4th Aug 2015</dd>
 <dd><strong>Software component version</strong>: Elasticsearch 1.6.0, Logstash 1.5.2, Kibana 4.2-snapshot, Redis 2.8.4</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.4.x</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.5.x, 1.4.x</dd>
