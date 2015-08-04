@@ -4,8 +4,8 @@ title: ELK for Pivotal Cloud Foundry
 
 Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk)
 
-### 1.0-beta2
-**Release Date: 28th July 2015**
+### 0.1.0.beta.3
+**Release Date: 4th Aug 2015**
 
 #### Overview
 
@@ -17,6 +17,7 @@ Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/pro
 * NEW Logo and name "ELK for Pivotal Cloud Foundry"
 * NEW Overview dashboard
 * NEW MySQL, RabbitMQ, Redis data service dashboards
+* UPGRADE required stemcell to 3026
 * UPGRADE Kibana to 4.2-snapshot
 * UPGRADE Elasticsearch to 1.6.0
 * UPGRADE Logstash to 1.5.2
@@ -26,4 +27,4 @@ Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/pro
 
 ### Known Issues
 
-* None
+* Kibana 4.2-snapshot has memory leak
