@@ -1,13 +1,13 @@
 ---
-title: ELK for Pivotal Cloud Foundry
+title: stayUp.io ELK for Pivotal Cloud Foundry
 ---
 
-This is documentation for the [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk) tile.
+This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk) tile
 
 ## Product snapshot
 
 <dl>
-<dt>Current ELK for Pivotal Cloud Foundry Details</dt>
+<dt>Current stayUp.io ELK for Pivotal Cloud Foundry Details</dt>
 <dd><strong>Version</strong>: v0.1.0.beta.3 </dd>
 <dd><strong>Release Date</strong>: 4th Aug 2015</dd>
 <dd><strong>Software component version</strong>: Elasticsearch 1.6.0, Logstash 1.5.2, Kibana 4.2-snapshot, Redis 2.8.4</dd>
