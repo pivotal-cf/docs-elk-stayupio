@@ -8,11 +8,11 @@ This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://
 
 <dl>
 <dt>Current stayUp.io ELK for Pivotal Cloud Foundry Details</dt>
-<dd><strong>Version</strong>: v0.1.0.beta.3 </dd>
-<dd><strong>Release Date</strong>: 4th Aug 2015</dd>
-<dd><strong>Software component version</strong>: Elasticsearch 1.6.0, Logstash 1.5.2, Kibana 4.2-snapshot, Redis 2.8.4</dd>
-<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.5.x, 1.4.x</dd>
-<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.5.x, 1.4.x</dd>
+<dd><strong>Version</strong>: v0.5.0.beta.5 </dd>
+<dd><strong>Release Date</strong>: 21st Sept 2015</dd>
+<dd><strong>Software component version</strong>: Elasticsearch 1.7.0, Logstash 1.5.4, Kibana 4.2-snapshot, Redis 2.8.4</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.5.x</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>:  1.6.x, 1.5.x</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
 <dd><strong>OpenStack support?</strong> Coming soon</dd>
@@ -42,10 +42,10 @@ Once you have installed the product, it automatically subscribes to your Elastic
 
 You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
 
-0. Navigate to ELK-for-PCF Tile > Status, and find the `Ingestor for Syslog / RELP traffic` node's IP.
+0. Navigate to ELK-for-PCF Tile > Status, and find the `Ingestor for other tiles (syslog port: 514, RELP port: 515)` node's IP.
 0. Update Pivotal Elastic Runtime Tile > External endpoints using the above IP, port 515, and protocol RELP.
-0. Update RabbitMQ for PCF Tile > Syslog using the above IP, port 514.
-0. Update Redis for Pivotal Cloud Foundry Tile > Syslog using the above IP, port 514.
+0. (optional) Update RabbitMQ for PCF Tile > Syslog using the above IP, port 514.
+0. (optional) Update Redis for Pivotal Cloud Foundry Tile > Syslog using the above IP, port 514.
 0. Click **Apply Changes** to install the service.
 
 ## Kibana for CF Dashboards
@@ -77,10 +77,10 @@ The following examples demonstrate common log analysis use-cases supported by th
 
 ## Feedback
 
-Please provide any bugs, feature requests, or questions to [the Pivotal Cloud Foundry Feedback list](mailto:pivotal-cf-feedback@pivotal.io).
+Please provide any bugs, feature requests, or questions to [support@stayup.io](mailto:support@stayup.io).
 
 ## Further Reading
 
-* [Official Elastic Elasticsearch 1.6.0 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/1.6/index.html)
+* [Official Elastic Elasticsearch 1.7.0 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/1.7/index.html)
 * [Official Elastic Logstash Documentation](https://www.elastic.co/guide/en/logstash/current/index.html)
 * [Official Elastic Kibana 4.1 Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)

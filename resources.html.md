@@ -4,83 +4,13 @@ title: ELK for Pivotal Cloud Foundry
 
 # Resource requirements for ELK for Pivotal Cloud Foundry
 These are the default resource and IP requirements for installing the tile:
-<table border="1" class="nice">
-	<tr>
-		<th>Component</th>
-		<th>Job</th>
-		<th>Instances</th>
-		<th>CPU</th>
-		<th>Ram</th>
-		<th>Ephemeral</th>
-		<th>Persistent</th>
-		<th>Static IP</th>
-		<th>Dynamic IP</th>
-	</tr>
-	<tr>
- 		<td>Logstash with firehose adapter</td>
-	 	<td>Ingestor for Cloud Foundry Firehose</td>
-	 	<td>1</td>
-	 	<td>2</td>
-	 	<td>1024</td>
-	 	<td>4096</td>
-	 	<td>0</td>
-	 	<td>1</td>
-	 	<td>0</td>
- 	</tr>
- 	<tr>
- 		<td>Logstash</td>
-	 	<td>Ingestor for Syslog / RELP traffic</td>
-	 	<td>1</td>
-	 	<td>2</td>
-	 	<td>1024</td>
-	 	<td>4096</td>
-	 	<td>0</td>
-	 	<td>1</td>
-	 	<td>0</td>
- 	</tr>
- 	<tr>
- 		<td>Redis</td>
- 		<td>Queue</td>
- 		<td>1</td>
- 		<td>2</td>
- 		<td>15000</td>
- 		<td>4096</td>
- 		<td>30000</td>
- 		<td>0</td>
- 		<td>1</td>
- 	</tr>
- 	<tr>
- 		<td>Elasticsearch</td>
- 		<td>Elasticsearch data nodes</td>
- 		<td>2</td>
- 		<td>4</td>
- 		<td>32000</td>
- 		<td>4096</td>
- 		<td>50000</td>
- 		<td>0</td>
- 		<td></td>
- 	</tr>
-	<tr>
-		<td>Kibana</td>
-		<td>API and Admin Kibana</td>
-		<td>1</td>
-		<td>1</td>
-		<td>1024</td>
-		<td>2048</td>
-		<td>0</td>
-		<td>1</td>
-		<td>0</td>
-	</tr>
-	<tr>
-		<td>Logstash</td>
-		<td>Log parser</td>
-		<td>2</td>
-		<td>2</td>
-		<td>1024</td>
-		<td>2048</td>
-		<td>0</td>
-		<td>0</td>
-		<td>1</td>
-	</tr>
 
-</table>
+| Component     | Job                                                         | Instances | CPU | Ram   | Ephemeral | Persistent | Static IP | Dynamic IP |
+|---------------|-------------------------------------------------------------|-----------|-----|-------|-----------|------------|-----------|------------|
+| Logstash      | Ingestor for Elastic Runtime's firehose                     | 1         | 2   | 1024  | 4096      | 0          | 1         | 0          |
+| Logstash      | Ingestor for other tiles (syslog port: 514, RELP port: 515) | 1         | 2   | 1024  | 4096      | 0          | 1         | 0          |
+| Redis         | Queue                                                       | 1         | 2   | 15000 | 4096      | 30000      | 0         | 1          |
+| Elasticsearch | Elasticsearch master node(s)                                | 1         | 1   | 1024  | 2048      | 5000       | 1         | 0          |
+| Elasticsearch | Elasticsearch data nodes                                    | 2         | 4   | 32000 | 4096      | 50000      | 0         | 2          |
+| Logstash      | Log parser                                                  | 2         | 2   | 1024  | 2048      | 0          | 0         | 1          |
+| All           | Monitor VM                                                  | 0         | 2   | 32000 | 4096      | 25000      | 1         | 0          |
