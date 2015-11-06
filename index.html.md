@@ -1,5 +1,5 @@
 ---
-title: stayUp.io ELK for Pivotal Cloud Foundry
+title: stayUp.io ELK for Pivotal Cloud Foundry&reg;
 ---
 
 This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk) tile
@@ -7,7 +7,7 @@ This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://
 ## Product snapshot
 
 <dl>
-<dt>Current stayUp.io ELK for Pivotal Cloud Foundry Details</dt>
+<dt>Current stayUp.io ELK for <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> Details</dt>
 <dd><strong>Version</strong>: v0.5.0.beta.5 </dd>
 <dd><strong>Release Date</strong>: 21st Sept 2015</dd>
 <dd><strong>Software component version</strong>: Elasticsearch 1.7.0, Logstash 1.5.4, Kibana 4.2-snapshot, Redis 2.8.4</dd>
@@ -26,7 +26,7 @@ While in beta, it is **not** possible to upgrade from previous versions. You mus
 
 ## Install via Pivotal Operations Manager
 
-To install ELK for Pivotal Cloud Foundry, follow the procedure for installing Pivotal Ops Manager tiles:
+To install ELK for Pivotal Cloud Foundry&reg;, follow the procedure for installing Pivotal Ops Manager tiles:
 
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
 1. Upload the product file to your Ops Manager installation.
@@ -40,12 +40,12 @@ Once you have installed the product, it automatically subscribes to your Elastic
 
 ## Elastic Runtime and Data Service Component Logs
 
-You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
+You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingester.
 
 0. Navigate to ELK-for-PCF Tile > Status, and find the `Ingestor for other tiles (syslog port: 514, RELP port: 515)` node's IP.
 0. Update Pivotal Elastic Runtime Tile > External endpoints using the above IP, port 515, and protocol RELP.
 0. (optional) Update RabbitMQ for PCF Tile > Syslog using the above IP, port 514.
-0. (optional) Update Redis for Pivotal Cloud Foundry Tile > Syslog using the above IP, port 514.
+0. (optional) Update Redis for Pivotal Cloud Foundry&reg; Tile > Syslog using the above IP, port 514.
 0. Click **Apply Changes** to install the service.
 
 ## Kibana for CF Dashboards
@@ -70,7 +70,7 @@ The following ports and ranges are used in this service:
 
 ## Examples
 
-The following examples demonstrate common log analysis use-cases supported by the ELK for Pivotal Cloud Foundry tile:
+The following examples demonstrate common log analysis use-cases supported by the ELK for Pivotal Cloud Foundry&reg; tile:
 
 * [Evidence based blue / green app deploys](https://github.com/stayup-io/cf-dicey-app)
 * Cross microservice log tracing - TODO
