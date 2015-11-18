@@ -29,11 +29,16 @@ From this point forward it will be possible to upgrade to the final GA releases.
 
 To install ELK for Pivotal Cloud Foundry&reg;, follow the procedure for installing Pivotal Ops Manager tiles:
 
-1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
-1. Upload the product file to your Ops Manager installation.
-1. Click **Add** next to the uploaded product description in the Available Products view to add this product to your staging area.
-1. Click the newly added tile to review any configurable options.
-1. Click **Apply Changes** to install the service.
+0. Download the product file from [Pivotal Network](https://network.pivotal.io/).
+0. Upload the product file to your Ops Manager installation.
+0. Click **Add** next to the uploaded product description in the Available Products view to add this product to your staging area.
+0. PCF 1.5:  Elastic Runtime 1.5.x must have the binary buildpack installed -  [download](https://network.pivotal.io/products/buildpacks#/releases/349)
+
+        cf create-buildpack binary_buildpack binary_buildpack-cached-v1.0.1.zip 8
+
+0. Add `ELK-for-PCF` Tile version `1.0.0.rc1`.  Configure Availability zone.  
+0. Apply changes to install `ELK-for-PCF` 
+0.  Browse to `https://logs.<your-pcf-system-domain>`.  Login using a valid CF user (eg, the same credentials you would use to authenticate with the `cf` CLI client.
 
 ## Application Logs
 
@@ -41,14 +46,8 @@ Once you have installed the product, it automatically subscribes to your Elastic
 
 ## Elastic Runtime and Data Service Component Logs
 
-You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingester.
+You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
 
-0.  PCF 1.5:  Elastic Runtime 1.5.x must have the binary buildpack installed -  [download](https://network.pivotal.io/products/buildpacks#/releases/349)
-
-        cf create-buildpack binary_buildpack binary_buildpack-cached-v1.0.1.zip 8
-
-0.  Add `ELK-for-PCF` Tile version `1.0.0.rc1`.  Configure Availability zone.  
-0.  Apply changes to install `ELK-for-PCF` 
 0.  Navigate to `ELK-for-PCF` Tile > Status, and find `Ingestor for Syslog / RELP traffic` node's IP.
 0.  Update `Pivotal Elastic Runtime` Tile
    0. PCF 1.5: Update `Pivotal Elastic Runtime` Tile > External endpoints using above IP, port `514` and protocol `TCP`.
@@ -56,7 +55,6 @@ You can configure the Elastic Runtime and other Data Service tiles to send their
 0.  Update `RabbitMQ for PCF` Tile > Syslog using above IP, port `514`.
 0.  Update `Redis for Pivotal CF` Tile > Syslog using above IP, port `514`.
 0.  Apply Changes
-0.  Browse to `https://logs.<your-pcf-system-domain>`.  Login using a valid CF user (eg, the same credentials you would use to authenticate with the `cf` CLI client.
 0.  (Optional) Install `cf-app-events-logger` into the Elastic Runtime.  Clone https://github.com/stayup-io/cf-app-events-logger and follow instructions in README
 
 ## Kibana for CF Dashboards
