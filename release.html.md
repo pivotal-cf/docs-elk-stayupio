@@ -33,7 +33,7 @@ Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/pro
 * NEW: App dashboards ( Overview, Events, Errors, Performance, Metrics (PCF1.6) )
 <img width="1672" alt="screen shot 2015-11-18 at 16 46 08" src="https://cloud.githubusercontent.com/assets/227505/11247414/ef79a040-8e13-11e5-94f0-ee315eb0270f.png">
 * NEW: Platform dashboards - BOSH Alerts, Instance metrics, Metrics, DEA Health, UAA Audit
-<img width="1674" alt="screen shot 2015-11-18 at 16 48 32" src="https://cloud.githubusercontent.com/assets/227505/11247494/3ffe83e6-8e14-11e5-90ad-3a18f197ea1f.png">
+<img width="1674" alt="screen shot 2015-11-18 at 16 50 07" src="https://cloud.githubusercontent.com/assets/227505/11247560/77e7cc54-8e14-11e5-82fe-92d84df4e158.png">
 * NEW: Tile upgrades
 
 ### Missing
