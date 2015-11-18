@@ -3,6 +3,47 @@ title: ELK for Pivotal Cloud Foundry&reg;
 ---
 
 Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk)
+### 1.0.0.rc1
+**Release Date: 13st Nov 2015**
+
+* Core component upgrades to Elasticsearch 2.0 GA and Kibana 4.2 GA
+* Support for PCF 1.6
+* Support for tile upgrades
+* Multi-tenant access control
+  * Members of the PCF `system` org can view platform logs and all app logs
+  * Other users are restricted to only see app logs from apps in PCF spaces that they are a member of
+
+### Targets:
+* Ops Manager 1.5.7, 1.6.1
+* Elastic Runtime 1.5.6, 1.6.2
+
+### Supports
+* RabbitMQ for PCF 1.4.1
+* Redis for Pivotal CF 1.4.6
+* MySQL for Pivotal Cloud Foundry 1.5.x
+
+### Changes
+* UPGRADE: Elasticsearch to 2.0.0 GA
+* UPGRADE: KIbana to 4.2.0 GA
+* NEW: Multi-tenant access control
+  * Members of the PCF `system` org can view platform logs and all app logs
+  * Other users are restricted to only see app logs from apps in PCF spaces that they are a member of
+* NEW: Imports App Event data from /v2/events endpoint - requires deploying  https://github.com/stayup-io/cf-app-events-logger )
+<img width="1677" alt="screen shot 2015-11-18 at 16 47 26" src="https://cloud.githubusercontent.com/assets/227505/11247459/17859b8e-8e14-11e5-8f75-341f8b3f00dd.png">
+* NEW: App dashboards ( Overview, Events, Errors, Performance, Metrics (PCF1.6) )
+<img width="1672" alt="screen shot 2015-11-18 at 16 46 08" src="https://cloud.githubusercontent.com/assets/227505/11247414/ef79a040-8e13-11e5-94f0-ee315eb0270f.png">
+* NEW: Platform dashboards - BOSH Alerts, Instance metrics, Metrics, DEA Health, UAA Audit
+<img width="1674" alt="screen shot 2015-11-18 at 16 48 32" src="https://cloud.githubusercontent.com/assets/227505/11247494/3ffe83e6-8e14-11e5-90ad-3a18f197ea1f.png">
+* NEW: Tile upgrades
+
+### Missing
+0. Documentation 
+
+### Known Issues
+* Kibana 4.2.0-GA (still!) has a memory leak; which causes the Kibana to show "broken connection" error messages every few hours.  A browser refresh fixes the problem.  We're working with the upstream Kibana developers to resolve this issue - https://github.com/elastic/kibana/issues/5170
+
+---
+
 ### 0.5.0.beta.5
 **Release Date: 21st Sept 2015**
 
@@ -39,6 +80,8 @@ Auto-purge old logs, remove "first install" config steps, UAA Audit dashboard, M
 * Monitor microELK VM and KOPF plugins do not have public network routes.  Operators will need to configure port forwarding or a SSH tunnel (eg, ssh into a machine within the private VLAN with `-L9200:10.0.16.47:9200 -L9201:10.0.16.51:9200 -L5601:10.0.16.51:5601`) to access these via their local browser.
 * A race condition with default elasticsearch mapping rules sometimes occurs where the first index is created before the mapping rules are in place.  This manifests itself by hyphened app names (eg, eureka-server) appearing as 2 separate apps.  The fix is to delete the current index via `curl -X DELETE https://<elasticsearch_master_ip>:9200/logstash-<today's date in yyyy-mm-dd format>`.
 * Kibana 4.2-snapshot (still) has a memory leak.
+
+---
 
 ### 0.1.0.beta.3
 **Release Date: 4th Aug 2015**
