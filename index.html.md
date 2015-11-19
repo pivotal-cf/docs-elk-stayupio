@@ -8,31 +8,37 @@ This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://
 
 <dl>
 <dt>Current stayUp.io ELK for <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> Details</dt>
-<dd><strong>Version</strong>: v0.5.0.beta.5 </dd>
-<dd><strong>Release Date</strong>: 21st Sept 2015</dd>
-<dd><strong>Software component version</strong>: Elasticsearch 1.7.0, Logstash 1.5.4, Kibana 4.2-snapshot, Redis 2.8.4</dd>
+<dd><strong>Version</strong>: v1.0.0.rc1 </dd>
+<dd><strong>Release Date</strong>: 13 Nov 2015</dd>
+<dd><strong>Software component version</strong>: Elasticsearch 2.0.0, Logstash 1.5.4, Kibana 4.2.0, Redis 2.8.4</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.5.x</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>:  1.6.x, 1.5.x</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
-<dd><strong>OpenStack support?</strong> Coming soon</dd>
 </dl>
 
 ## Upgrading to the Latest Version
 
-While in beta, it is **not** possible to upgrade from previous versions. You must uninstall previous versions and then install this latest version.
+You must delete any previous beta versions before installing this release candidate.
 
 <p class="note"><strong>Note</strong>: Uninstalling previous versions will delete all data and saved dashboard settings.</p>
+
+From this point forward it will be possible to upgrade to the final GA releases.
 
 ## Install via Pivotal Operations Manager
 
 To install ELK for Pivotal Cloud Foundry&reg;, follow the procedure for installing Pivotal Ops Manager tiles:
 
-1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
-1. Upload the product file to your Ops Manager installation.
-1. Click **Add** next to the uploaded product description in the Available Products view to add this product to your staging area.
-1. Click the newly added tile to review any configurable options.
-1. Click **Apply Changes** to install the service.
+0. Download the product file from [Pivotal Network](https://network.pivotal.io/).
+0. Upload the product file to your Ops Manager installation.
+0. Click **Add** next to the uploaded product description in the Available Products view to add this product to your staging area.
+0. PCF 1.5:  Elastic Runtime 1.5.x must have the binary buildpack installed -  [download](https://network.pivotal.io/products/buildpacks#/releases/349)
+
+        cf create-buildpack binary_buildpack binary_buildpack-cached-v1.0.1.zip 8
+
+0. Add `ELK-for-PCF` Tile version `1.0.0.rc1`.  Configure Availability zone.  
+0. Apply changes to install `ELK-for-PCF` 
+0.  Browse to `https://logs.<your-pcf-system-domain>`.  Login using a valid CF user (eg, the same credentials you would use to authenticate with the `cf` CLI client.
 
 ## Application Logs
 
@@ -40,13 +46,16 @@ Once you have installed the product, it automatically subscribes to your Elastic
 
 ## Elastic Runtime and Data Service Component Logs
 
-You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingester.
+You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
 
-0. Navigate to ELK-for-PCF Tile > Status, and find the `Ingestor for other tiles (syslog port: 514, RELP port: 515)` node's IP.
-0. Update Pivotal Elastic Runtime Tile > External endpoints using the above IP, port 515, and protocol RELP.
-0. (optional) Update RabbitMQ for PCF Tile > Syslog using the above IP, port 514.
-0. (optional) Update Redis for Pivotal Cloud Foundry&reg; Tile > Syslog using the above IP, port 514.
-0. Click **Apply Changes** to install the service.
+0.  Navigate to `ELK-for-PCF` Tile > Status, and find `Ingestor for Syslog / RELP traffic` node's IP.
+0.  Update `Pivotal Elastic Runtime` Tile
+   0. PCF 1.5: Update `Pivotal Elastic Runtime` Tile > External endpoints using above IP, port `514` and protocol `TCP`.
+   0. PCF 1.6: Update `Pivotal Elastic Runtime` Tile > System Logging endpoints using above IP, port `514` and protocol `TCP`.
+0.  Update `RabbitMQ for PCF` Tile > Syslog using above IP, port `514`.
+0.  Update `Redis for Pivotal CF` Tile > Syslog using above IP, port `514`.
+0.  Apply Changes
+0.  (Optional) Install `cf-app-events-logger` into the Elastic Runtime.  Clone https://github.com/stayup-io/cf-app-events-logger and follow instructions in README
 
 ## Kibana for CF Dashboards
 
@@ -58,7 +67,9 @@ https://logs.<system_domain>
 
 When accessing Kibana, you will be prompted to log in with your Cloud Foundry UAA credentials. These are the same credentials used to access the App Manager console.
 
-<p class="note"><strong>Note</strong>: Currently, all authenticated users can see logs from all applications. Users will be restricted to only seeing logs from applications in spaces they are a member of in a later beta.</p>
+If your user is a member of the `system` organisation, you will be able to see all logs.
+
+Otherwise, you will only be able to see application logs from applications deployed to `spaces` that you are a member of.
 
 ## Security
 The following ports and ranges are used in this service:
@@ -81,6 +92,6 @@ Please provide any bugs, feature requests, or questions to [support@stayup.io](m
 
 ## Further Reading
 
-* [Official Elastic Elasticsearch 1.7.0 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/1.7/index.html)
+* [Official Elastic Elasticsearch 2.0.0 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.0/index.html)
 * [Official Elastic Logstash Documentation](https://www.elastic.co/guide/en/logstash/current/index.html)
-* [Official Elastic Kibana 4.1 Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
+* [Official Elastic Kibana 4.2 Documentation](https://www.elastic.co/guide/en/kibana/4.2/index.html)
