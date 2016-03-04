@@ -1,5 +1,6 @@
 ---
 title: stayUp.io ELK for Pivotal Cloud Foundry&reg;
+owner: London Services
 ---
 
 This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk) tile
@@ -36,8 +37,8 @@ To install ELK for Pivotal Cloud Foundry&reg;, follow the procedure for installi
 
         cf create-buildpack binary_buildpack binary_buildpack-cached-v1.0.1.zip 8
 
-0. Add `ELK-for-PCF` Tile version `1.0.0.rc1`.  Configure Availability zone.  
-0. Apply changes to install `ELK-for-PCF` 
+0. Add `ELK-for-PCF` Tile version `1.0.0.rc1`.  Configure Availability zone.
+0. Apply changes to install `ELK-for-PCF`
 0.  Browse to `https://logs.<your-pcf-system-domain>`.  Login using a valid CF user (eg, the same credentials you would use to authenticate with the `cf` CLI client.
 
 ## Application Logs

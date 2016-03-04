@@ -1,5 +1,6 @@
 ---
 title: ELK for Pivotal Cloud Foundry&reg;
+owner: London Services
 ---
 
 # Resource requirements for ELK for Pivotal Cloud Foundry&reg;
