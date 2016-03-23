@@ -20,7 +20,7 @@ Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/pro
 
 ### Supports
 * RabbitMQ for PCF 1.4.1
-* Redis for Pivotal CF 1.4.6
+* Redis for Pivotal Cloud Foundry 1.4.6
 * MySQL for Pivotal Cloud Foundry 1.5.x
 
 ### Changes
@@ -58,7 +58,7 @@ Auto-purge old logs, remove "first install" config steps, UAA Audit dashboard, M
 
 ### Supports
 * RabbitMQ for PCF 1.4.x
-* Redis for Pivotal CF 1.4.x
+* Redis for Pivotal Cloud Foundry 1.4.x
 * MySQL for [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) 1.5.x
 
 ### Changes

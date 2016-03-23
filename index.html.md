@@ -47,14 +47,14 @@ Once you have installed the product, it automatically subscribes to your Elastic
 
 ## Elastic Runtime and Data Service Component Logs
 
-You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingestor.
+You can configure the Elastic Runtime and other Data Service tiles to send their component logs to the ELK-for-PCF's syslog ingester.
 
 0.  Navigate to `ELK-for-PCF` Tile > Status, and find `Ingestor for Syslog / RELP traffic` node's IP.
 0.  Update `Pivotal Elastic Runtime` Tile
    0. PCF 1.5: Update `Pivotal Elastic Runtime` Tile > External endpoints using above IP, port `514` and protocol `TCP`.
    0. PCF 1.6: Update `Pivotal Elastic Runtime` Tile > System Logging endpoints using above IP, port `514` and protocol `TCP`.
 0.  Update `RabbitMQ for PCF` Tile > Syslog using above IP, port `514`.
-0.  Update `Redis for Pivotal CF` Tile > Syslog using above IP, port `514`.
+0.  Update `Redis for Pivotal Cloud Foundry` Tile > Syslog using above IP, port `514`.
 0.  Apply Changes
 0.  (Optional) Install `cf-app-events-logger` into the Elastic Runtime.  Clone https://github.com/stayup-io/cf-app-events-logger and follow instructions in README
 
