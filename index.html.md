@@ -77,7 +77,6 @@ The following ports and ranges are used in this service:
 * Destination port 443 for access to Kibana (via the Elastic Runtime `system domain` at `https://logs.<system_domain>` )
 * Destination port 443 for access from the `Ingestor for Cloud Foundry Firehose` node to the Elastic Runtime Firehose
 * Destination port 514 and 515 from the Elastic Runtime and Data Service network(s) to the  `Ingestor for Syslog / RELP traffic` node
-* Destination ports 9200 from the Elastic Runtime DEA network(s) to the API node.
 
 ## Examples
 
