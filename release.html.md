@@ -1,5 +1,6 @@
 ---
 title: ELK for Pivotal Cloud Foundry&reg;
+owner: London Services
 ---
 
 Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/products/elk)
@@ -37,7 +38,7 @@ Release notes for [ELK for Pivotal Cloud Foundry](https://network.pivotal.io/pro
 * NEW: Tile upgrades
 
 ### Missing
-0. Documentation 
+0. Documentation
 
 ### Known Issues
 * Kibana 4.2.0-GA (still!) has a memory leak; which causes the Kibana to show "broken connection" error messages every few hours.  A browser refresh fixes the problem.  We're working with the upstream Kibana developers to resolve this issue - https://github.com/elastic/kibana/issues/5170
