@@ -1,9 +1,9 @@
 ---
-title: ELK for Pivotal Cloud Foundry&reg;
+title: ELK for Pivotal Cloud Foundry
 owner: London Services
 ---
 
-# Resource requirements for ELK for Pivotal Cloud Foundry&reg;
+# Resource requirements for ELK for Pivotal Cloud Foundry
 These are the default resource and IP requirements for installing the tile:
 
 | Component     | Job                                                         | Instances | CPU | Ram   | Ephemeral | Persistent | Static IP | Dynamic IP |

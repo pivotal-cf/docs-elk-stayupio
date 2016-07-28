@@ -1,5 +1,5 @@
 ---
-title: stayUp.io ELK for Pivotal Cloud Foundry&reg;
+title: stayUp.io ELK for Pivotal Cloud Foundry
 owner: London Services
 ---
 
@@ -8,7 +8,7 @@ This is documentation for the [stayUp.io ELK for Pivotal Cloud Foundry](https://
 ## Product snapshot
 
 <dl>
-<dt>Current stayUp.io ELK for <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry&reg;</a> Details</dt>
+<dt>Current stayUp.io ELK for <a href="https://network.pivotal.io/products/pivotal-cf">Pivotal Cloud Foundry</a> Details</dt>
 <dd><strong>Version</strong>: v1.0.0.rc1 </dd>
 <dd><strong>Release Date</strong>: 13 Nov 2015</dd>
 <dd><strong>Software component version</strong>: Elasticsearch 2.0.0, Logstash 1.5.4, Kibana 4.2.0, Redis 2.8.4</dd>
@@ -28,7 +28,7 @@ From this point forward it will be possible to upgrade to the final GA releases.
 
 ## Install via Pivotal Operations Manager
 
-To install ELK for Pivotal Cloud Foundry&reg;, follow the procedure for installing Pivotal Ops Manager tiles:
+To install ELK for Pivotal Cloud Foundry, follow the procedure for installing Pivotal Ops Manager tiles:
 
 0. Download the product file from [Pivotal Network](https://network.pivotal.io/).
 0. Upload the product file to your Ops Manager installation.
@@ -82,7 +82,7 @@ The following ports and ranges are used in this service:
 
 ## Examples
 
-The following examples demonstrate common log analysis use-cases supported by the ELK for Pivotal Cloud Foundry&reg; tile:
+The following examples demonstrate common log analysis use-cases supported by the ELK for Pivotal Cloud Foundry tile:
 
 * [Evidence based blue / green app deploys](https://github.com/stayup-io/cf-dicey-app)
 * Cross microservice log tracing - TODO

@@ -1,5 +1,5 @@
 ---
-title: ELK for Pivotal Cloud Foundry&reg;
+title: ELK for Pivotal Cloud Foundry
 owner: London Services
 ---
 
@@ -59,7 +59,7 @@ Auto-purge old logs, remove "first install" config steps, UAA Audit dashboard, M
 ### Supports
 * RabbitMQ for PCF 1.4.x
 * Redis for Pivotal Cloud Foundry 1.4.x
-* MySQL for [Pivotal Cloud Foundry&reg;](https://network.pivotal.io/products/pivotal-cf) (PCF) 1.5.x
+* MySQL for [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF) 1.5.x
 
 ### Changes
 * NEW: Purge logs older than `Settings > Retention Period` days
@@ -94,7 +94,7 @@ Auto-purge old logs, remove "first install" config steps, UAA Audit dashboard, M
 * A number of minor enhancements and bug fixes
 
 #### Changes
-* NEW Logo and name "ELK for Pivotal Cloud Foundry&reg;"
+* NEW Logo and name "ELK for Pivotal Cloud Foundry"
 * NEW Overview dashboard
 * NEW MySQL, RabbitMQ, Redis data service dashboards
 * UPGRADE required stemcell to 3026
